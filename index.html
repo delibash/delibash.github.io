@@ -42,9 +42,9 @@
 		<div id="string"></div>
 	</body>
 	<script>
-		function stringGenerator (str) {
+		function stringGenerator(str) {
 			let newString = "";
-			return function step (count) {
+			return function step(count) {
 				if (str[count] !== "undefined") {
 					newString += str[count];
 				}
@@ -87,14 +87,16 @@
 		const updateString = stringGenerator(copy);
 
 		let count = 0;
-    
-    const l = copy.length;
+
+		const l = copy.length;
 
 		const sDOM = document.getElementById("string");
 
 		const interval = setInterval(function () {
 			count++;
-			return count < l ? (sDOM.innerHTML = updateString(count)) : clearInterval(interval);
+			return count < l
+				? (sDOM.innerHTML = updateString(count))
+				: clearInterval(interval);
 		}, 5);
 	</script>
 </html>
