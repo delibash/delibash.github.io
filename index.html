@@ -62,6 +62,13 @@
 			};
 		}
 
+		function stepGenerator(str) {
+			const arr = str.split("");
+			return function step(count) {
+				return arr[count];
+			};
+		}
+
 		const copy = `
       <p><a href="https://github.com/delibash">GitHub</a></p>
       <p><strong>About:</strong> Over 15 years of experience in web development with a focus on functional front end tools</p>
