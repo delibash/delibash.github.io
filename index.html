@@ -52,16 +52,6 @@
 			};
 		}
 
-		function createElement(elementType) {
-			const fragment = document.createDocumentFragment();
-			return function (data) {
-				const el = document.createElement(elementType);
-				el.textContent = data;
-				fragment.appendChild(el);
-				return fragment;
-			};
-		}
-
 		function stepGenerator(str) {
 			const arr = str.split("");
 			return function step(count) {
