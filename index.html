@@ -52,13 +52,6 @@
 			};
 		}
 
-		function stepGenerator(str) {
-			const arr = str.split("");
-			return function step(count) {
-				return arr[count];
-			};
-		}
-
 		const copy = `
       <p><a href="https://github.com/delibash">GitHub</a></p>
       <p><strong>About:</strong> Over 15 years of experience in web development with a focus on functional front end tools</p>
@@ -97,13 +90,14 @@
 
 		const l = copy.length;
 
-		const sDOM = document.getElementById("string");
-
-		const interval = setInterval(function () {
-			count++;
-			return count < l
-				? (sDOM.innerHTML = updateString(count))
-				: clearInterval(interval);
-		}, 5);
+		document.addEventListener("DOMContentLoaded", function () {
+			const sDOM = document.getElementById("string");
+			const interval = setInterval(function () {
+				count++;
+				return count < l
+					? (sDOM.innerHTML = updateString(count))
+					: clearInterval(interval);
+			}, 5);
+		});
 	</script>
 </html>
