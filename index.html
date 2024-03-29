@@ -52,6 +52,16 @@
 			};
 		}
 
+		function createElement(elementType) {
+			const fragment = document.createDocumentFragment();
+			return function (data) {
+				const el = document.createElement(elementType);
+				el.textContent = data;
+				fragment.appendChild(el);
+				return fragment;
+			};
+		}
+
 		const copy = `
       <p><a href="https://github.com/delibash">GitHub</a></p>
       <p><strong>About:</strong> Over 15 years of experience in web development with a focus on functional front end tools</p>
