@@ -45,7 +45,7 @@
 		function stringGenerator(str) {
 			let newString = "";
 			return function step(count) {
-				if (str[count]) {
+				if (str[count] !== undefined) {
 					newString += str[count];
 				}
 				return newString;
