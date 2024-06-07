@@ -42,16 +42,6 @@
 		<div id="string"></div>
 	</body>
 	<script>
-		function stringGenerator(str) {
-			let newString = "";
-			return function step(count) {
-				if (str[count] !== undefined) {
-					newString += str[count];
-				}
-				return newString;
-			};
-		}
-
 		const copy = `
       <p><a href="https://github.com/delibash">GitHub</a></p>
       <p><strong>About:</strong> Over 15 years of experience in web development with a focus on functional front end tools</p>
@@ -84,17 +74,26 @@
       </ul>
     `;
 
+		const len = copy.length;
+    let count = 0;
+
+		const stringGenerator = (str) => {
+			let newString = "";
+			return (count) => {
+				if (str[count] !== undefined) {
+					newString += str[count];
+				}
+				return newString;
+			};
+		};
+
 		const updateString = stringGenerator(copy);
-
-		let count = 0;
-
-		const l = copy.length;
 
 		document.addEventListener("DOMContentLoaded", function () {
 			const sDOM = document.getElementById("string");
 			const interval = setInterval(function () {
 				count++;
-				return count < l
+				return count < len
 					? (sDOM.innerHTML = updateString(count))
 					: clearInterval(interval);
 			}, 5);
