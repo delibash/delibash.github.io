@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<base href="https://delibash.github.io/" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#ffffff" />
+		<meta name="description" content="web development" />
+		<meta name="thumbnail" content="https://delibash.github.io/delibash.png" />
+		<title>Web Development</title>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+			}
+			body {
+				font-family: "Lucida Console", "Courier New", monospace;
+				line-height: 1.5rem;
+				padding: 1rem;
+			}
+			p,
+			ul {
+				padding-bottom: 1rem;
+			}
+		</style>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-Z4KDK0T6H2"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-Z4KDK0T6H2");
+		</script>
+	</head>
+	<body>
+		<div id="string"></div>
+	</body>
+	<script>
+		const copy = `
+      <p><a href="https://github.com/delibash">GitHub</a></p>
+      <p><strong>About:</strong> Web developer with a focus on functional tools</p>
+      <p><strong>Technical skills:</strong></p>
+      <ul>
+        <li>JavaScript/ES5+</li>
+        <li>React, Redux</li>
+        <li>HTML/CSS/jQuery</li>
+        <li>Less/Sass/Styled Components</li>
+        <li>Package & dependency managers, bootstrapping & build tools</li>
+        <li>NoSQL, MySQL</li>
+        <li>Node</li>
+        <li>LAMP</li>
+        <li>REST</li>
+        <li>CLI</li>
+        <li>Git</li>
+      </ul>
+      <p><strong>Past projects:</strong></p>
+      <ul>
+        <li>A full list of past clients available <a href="https://t.me/delibash">on demand</a></li>
+      </ul>
+      <p><strong>Languages:</strong></p>
+      <ul>
+        <li>English</li>
+        <li>Русский</li>
+      </ul>
+    `;
+
+		const len = copy.length;
+		let count = 0;
+
+		const stringGenerator = (str) => {
+			let newString = "";
+			return (count) => {
+				if (str[count] !== undefined) {
+					newString += str[count];
+				}
+				return newString;
+			};
+		};
+
+		const updateString = stringGenerator(copy);
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const sDOM = document.getElementById("string");
+			const interval = setInterval(function () {
+				count++;
+				return count < len
+					? (sDOM.innerHTML = updateString(count))
+					: clearInterval(interval);
+			}, 5);
+		});
+	</script>
+</html>
